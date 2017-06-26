@@ -1,5 +1,5 @@
 # scala
-FROM centos/s2i-base-centos7
+FROM centos/latest
 
 MAINTAINER Patrick Tescher <patrick@outtherelabs.com>
 
