@@ -45,5 +45,10 @@ USER 1001
 EXPOSE 9000 8778
 
 # Set the default CMD for the image
-CMD $STI_SCRIPTS_PATH/run
+RUN \
+  echo 'while [ true ]; do sleep 1; done' > /tmp/keep-alive && \
+  chmod +x /tmp/keep-alive
+
+ENTRYPOINT cd /opt/test-app-root/ && ./sbt -ivy /opt/app-root/src/.ivy2 -sbt-dir /opt/app-root/src/.sbt -sbt-boot /opt/app-root/src/.sbt/boot run && /tmp/keep-alive
+#CMD $STI_SCRIPTS_PATH/run
 #CMD sleep 3600
