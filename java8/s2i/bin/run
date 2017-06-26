@@ -13,4 +13,4 @@ export DEV_MODE=true
 echo "Launching via SBT"
 cd /opt/test-app-root 
 ./sbt -ivy /opt/app-root/src/.ivy2 -sbt-dir /opt/app-root/src/.sbt -sbt-boot /opt/app-root/src/.sbt/boot stage
-$(find . -type f -name "test-app" | grep -v tmp)
+exec $(find . -type f -name "test-app" | grep -v tmp)
