@@ -19,7 +19,7 @@ fi
 
 if [ "$DEV_MODE" == true ]; then
   echo "Launching via SBT"
-  exec ./sbt -ivy /opt/app-root/src/.ivy2 -sbt-dir /opt/app-root/src/.sbt -sbt-boot /opt/app-root/src/.sbt/boot -jvm-debug ${DEBUG_PORT} run
+  exec cd /opt/test-app-root && ./sbt -ivy /opt/app-root/src/.ivy2 -sbt-dir /opt/app-root/src/.sbt -sbt-boot /opt/app-root/src/.sbt/boot -jvm-debug ${DEBUG_PORT} run
 else
   echo "Launching via script"
   if [ $(find target/universal/stage/bin -type f -executable | wc -l) -eq 1 ]; then
