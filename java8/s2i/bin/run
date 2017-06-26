@@ -12,4 +12,4 @@ export DEBUG_PORT=5005
 export DEV_MODE=true
 echo "Launching via SBT"
 cd /opt/test-app-root 
-exec -t ./sbt -ivy /opt/app-root/src/.ivy2 -sbt-dir /opt/app-root/src/.sbt -sbt-boot /opt/app-root/src/.sbt/boot run
+exec ./sbt -ivy /opt/app-root/src/.ivy2 -sbt-dir /opt/app-root/src/.sbt -sbt-boot /opt/app-root/src/.sbt/boot run
