@@ -18,32 +18,11 @@ objects:
     source:
       contextDir: java8
       git:
-        uri: git@github.com:OutThereLabs/s2i-scala.git
-      secrets:
-        - secret:
-            name: s2i-scala-deploy-key
+        uri: https://github.com/agello/s2i-scala.git
     strategy:
       dockerStrategy: {}
       type: Docker
-    triggers:
-    - github:
-        secret: "${GITHUB_WEBHOOK_SECRET}"
-      type: GitHub
-    - generic:
-        secret: "${GENERIC_WEBHOOK_SECRET}"
-      type: Generic
 - apiVersion: v1
   kind: ImageStream
   metadata:
     name: scala
-parameters:
-  - name: "GITHUB_WEBHOOK_SECRET"
-    displayName: "GitHub Webhook Secret"
-    description: "A secret string used to configure the GitHub webhook."
-    generate: "expression"
-    from: "[a-zA-Z0-9]{40}"
-  - name: "GENERIC_WEBHOOK_SECRET"
-    displayName: "GitHub Webhook Secret"
-    description: "A secret string used to configure the GitHub webhook."
-    generate: "expression"
-    from: "[a-zA-Z0-9]{40}"
