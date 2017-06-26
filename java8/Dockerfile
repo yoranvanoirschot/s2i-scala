@@ -15,7 +15,7 @@ LABEL summary="Platform for building and running Scala applications in Java 8" \
 
 # Install Java, SBT, and openshift client
 RUN yum update -y && \
-    yum install -y java-1.8.0-openjdk && \
+    yum install -y java-1.8.0-openjdk java-devel && \
     curl https://bintray.com/sbt/rpm/rpm | tee /etc/yum.repos.d/bintray-sbt-rpm.repo && \
     yum install -y sbt && \
     set -o pipefail && curl -L https://github.com/openshift/origin/releases/download/v1.4.1/openshift-origin-client-tools-v1.4.1-3f9807a-linux-64bit.tar.gz | \
