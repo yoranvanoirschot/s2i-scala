@@ -14,7 +14,7 @@ fi
 
 # Set the environment to development by default.
 if [ -z "$DEV_MODE" ]; then
-  export DEV_MODE=false
+  export DEV_MODE=true
 fi
 
 if [ "$DEV_MODE" == true ]; then
