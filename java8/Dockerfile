@@ -48,5 +48,5 @@ USER 1001
 EXPOSE 9000 8778
 
 # Set the default CMD for the image
-CMD $STI_SCRIPTS_PATH/run
-#CMD sleep 3600
+#CMD $STI_SCRIPTS_PATH/run
+CMD sleep 3600
