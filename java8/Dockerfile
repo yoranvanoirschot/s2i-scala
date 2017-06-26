@@ -1,5 +1,5 @@
 # scala
-FROM centos/latest
+FROM openshift/base-centos7
 
 MAINTAINER Patrick Tescher <patrick@outtherelabs.com>
 
