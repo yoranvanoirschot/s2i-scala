@@ -33,6 +33,7 @@ RUN cd /opt/test-app-root && \
     -sbt-dir /opt/app-root/src/.sbt \
     -sbt-boot /opt/app-root/src/.sbt/boot \
     compile && \
+    ./sbt -ivy /opt/app-root/src/.ivy2 -sbt-dir /opt/app-root/src/.sbt -sbt-boot /opt/app-root/src/.sbt/boot stage && \
     chown -R 1001:0 /opt/app-root && chmod -R ug+rwx /opt/app-root
 
 # Copy the S2I scripts from the specific language image to $STI_SCRIPTS_PATH
