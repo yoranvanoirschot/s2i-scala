@@ -8,25 +8,8 @@
 #
 
 #Set the debug port to 5858 by default.
-if [ -z "$DEBUG_PORT" ]; then
-  export DEBUG_PORT=5005
-fi
+export DEBUG_PORT=5005
+export DEV_MODE=true
+echo "Launching via SBT"
+cd /opt/test-app-root && ./sbt -ivy /opt/app-root/src/.ivy2 -sbt-dir /opt/app-root/src/.sbt -sbt-boot /opt/app-root/src/.sbt/boot -jvm-debug ${DEBUG_PORT} run
 
-# Set the environment to development by default.
-if [ -z "$DEV_MODE" ]; then
-  export DEV_MODE=true
-fi
-
-if [ "$DEV_MODE" == true ]; then
-  echo "Launching via SBT"
-  exec cd /opt/test-app-root && ./sbt -ivy /opt/app-root/src/.ivy2 -sbt-dir /opt/app-root/src/.sbt -sbt-boot /opt/app-root/src/.sbt/boot -jvm-debug ${DEBUG_PORT} run
-else
-  echo "Launching via script"
-  if [ $(find target/universal/stage/bin -type f -executable | wc -l) -eq 1 ]; then
-    exec $(find target/universal/stage/bin -type f -executable)
-  elif [ $(find bin -type f -executable | wc -l) -eq 1 ]; then
-    exec $(find bin -type f -executable)
-  else
-    echo "Could not detect proper start command in $(ls)"
-  fi
-fi
