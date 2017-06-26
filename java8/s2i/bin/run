@@ -13,7 +13,8 @@ export DEV_MODE=true
 echo "Launching via SBT"
 cd /opt/test-app-root 
 #./sbt -ivy /opt/app-root/src/.ivy2 -sbt-dir /opt/app-root/src/.sbt -sbt-boot /opt/app-root/src/.sbt/boot stage
-basedir="/opt/test-app-root/"
+basedir="/opt/app-root/"
 runtimesbt=$(find . -type f -name "test-app" | grep -v tmp)
 echo "compile complete, starting $basedir$runtimesbt"
+cd /opt/app-root
 exec $basedir$runtimesbt -Dpidfile.path=/opt/test-app/play.pid
