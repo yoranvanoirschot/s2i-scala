@@ -34,9 +34,6 @@ RUN cd /opt/test-app-root && \
     -sbt-boot /opt/app-root/src/.sbt/boot \
     compile && \
     chown -R 1001:0 /opt/app-root && chmod -R ug+rwx /opt/app-root
-    
-    #rm -rf /opt/test-app-root && \
-    #chown -R 1001:0 /opt/app-root && chmod -R ug+rwx /opt/app-root
 
 # Copy the S2I scripts from the specific language image to $STI_SCRIPTS_PATH
 COPY s2i/bin/ $STI_SCRIPTS_PATH
