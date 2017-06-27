@@ -2,6 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/java8/test/test-app/.idea/modules/root.iml" filepath="$PROJECT_DIR$/java8/test/test-app/.idea/modules/root.iml" />
+      <module fileurl="file://$PROJECT_DIR$/java8/test/test-app/.idea/modules/root-build.iml" filepath="$PROJECT_DIR$/java8/test/test-app/.idea/modules/root-build.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/s2i-scala.iml" filepath="$PROJECT_DIR$/.idea/s2i-scala.iml" />
     </modules>
   </component>

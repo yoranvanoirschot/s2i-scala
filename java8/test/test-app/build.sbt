@@ -12,3 +12,5 @@ libraryDependencies ++= Seq(
   ws,
   "org.scalatestplus.play" %% "scalatestplus-play" % "1.5.1" % Test
 )
+libraryDependencies += "org.apache.spark" % "spark-core_2.11" % "2.1.1" % "provided"
+libraryDependencies += "org.apache.spark" % "spark-sql_2.11" % "2.1.1" % "provided"

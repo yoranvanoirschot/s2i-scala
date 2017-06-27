@@ -1,8 +1,13 @@
 package controllers
 
 import javax.inject._
+
+import org.apache.spark.SparkConf
+import org.apache.spark.sql.SparkSession
 import play.api._
 import play.api.mvc._
+
+import scala.util.Random
 
 /**
  * This controller creates an `Action` to handle HTTP requests to the
@@ -18,7 +23,19 @@ class HomeController @Inject() extends Controller {
    * a path of `/`.
    */
   def index = Action {
-    Ok(views.html.index("Hi BBlocks! Whatsup bitches! Aap!"))
+    val properties = {
+      Map(
+        "spark.master" -> "local[*]",
+        "spark.app.name" -> "bb-default"
+      )
+    }
+    val _spark = SparkSession
+      .builder()
+      .config(new SparkConf().setAll(properties))
+      .getOrCreate()
+    val numbers = _spark.range(1,100).collect()
+
+    Ok(views.html.index(s"Hi BBlocks! Whatsup bitches! Aap! I have some numbers for you: ${Random.shuffle(numbers).mkString(", ")}"))
   }
 
 }
