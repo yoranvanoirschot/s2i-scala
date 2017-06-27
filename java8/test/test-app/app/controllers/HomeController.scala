@@ -35,7 +35,7 @@ class HomeController @Inject() extends Controller {
       .getOrCreate()
     val numbers = _spark.range(1,100).collect()
 
-    Ok(views.html.index(s"Hi BBlocks! Whatsup bitches! Aap! I have some numbers for you: ${Random.shuffle(numbers).mkString(", ")}"))
+    Ok(views.html.index(s"Hi BBlocks! Whatsup bitches! Aap! I have some numbers for you: ${Random.shuffle(numbers.toSeq).mkString(", ")}"))
   }
 
 }
